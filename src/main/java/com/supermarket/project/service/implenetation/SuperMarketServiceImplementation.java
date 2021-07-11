@@ -1,9 +1,12 @@
 package com.supermarket.project.service.implenetation;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 
 import javax.transaction.Transactional;
 
+import com.supermarket.project.model.Item;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +28,7 @@ public class SuperMarketServiceImplementation implements SuperMarketService {
 
 	@Override
 	public SuperMarket getMarketById(Long superMarketId) {
+		Optional<SuperMarket> theOptiona
 		return theMarketRepository.getById(superMarketId);
 	}
 
@@ -36,6 +40,10 @@ public class SuperMarketServiceImplementation implements SuperMarketService {
 	@Override
 	public void deleteMarketById(Long superMarketId) {
 		theMarketRepository.deleteById(superMarketId);
+	}
+
+	public Set<Item> getMarketPriceList(Long MarketId){
+		SuperMarket theMarket =
 	}
 
 }

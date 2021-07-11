@@ -1,15 +1,10 @@
 package com.supermarket.project.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Lob;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+import java.util.Set;
 
-import org.apache.catalina.User;
 
 @Entity
 public class SuperMarket {
@@ -33,7 +28,10 @@ public class SuperMarket {
 	private byte[] superMarketImage;
 	
     @OneToOne(mappedBy = "theSuperMarket")
-    private User superMarketModerator;
+    private Users superMarketModerator;
+
+    @OneToMany(mappedBy = "theMarket")
+	private Set<Item> theMarketMenu;
 
 	public SuperMarket() {
 
@@ -86,13 +84,19 @@ public class SuperMarket {
 		this.superMarketImage = superMarketImage;
 	}
 
-	public User getSuperMarketModerator() {
+	public Users getSuperMarketModerator() {
 		return superMarketModerator;
 	}
 
-	public void setSuperMarketModerator(User superMarketModerator) {
+	public void setSuperMarketModerator(Users superMarketModerator) {
 		this.superMarketModerator = superMarketModerator;
 	}
 
-	
+	public Set<Item> getTheMarketMenu() {
+		return theMarketMenu;
+	}
+
+	public void setTheMarketMenu(Set<Item> theMarketMenu) {
+		this.theMarketMenu = theMarketMenu;
+	}
 }

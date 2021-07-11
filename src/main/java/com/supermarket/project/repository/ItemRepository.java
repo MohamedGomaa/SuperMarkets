@@ -1,10 +1,9 @@
 package com.supermarket.project.repository;
 
+import com.supermarket.project.model.Item;
 import org.springframework.data.jpa.repository.JpaRepository;
-
-import com.supermarket.project.model.SuperMarket;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface SuperMarketRepository extends JpaRepository<SuperMarket, Long> {
+public interface ItemRepository extends JpaRepository<Item , Long> {
 }
